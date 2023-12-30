@@ -3,12 +3,6 @@
 
 import random
 import numpy as np
-from utils import mnist_reader
-x_train, y_train = mnist_reader.load_mnist('data/fashion', kind='train')
-x_test, y_test = mnist_reader.load_mnist('data/fashion', kind='t10k')
-
-
-# %load network.py
 
 """
 network.py
@@ -180,8 +174,10 @@ class Network(object):
         network outputs the correct result. Note that the neural
         network's output is assumed to be the index of whichever
         neuron in the final layer has the highest activation."""
+        # argmax retrieves the largest number in the prediction layer of x
         test_results = [(np.argmax(self.feedforward(x)), y)
                         for (x, y) in test_data]
+        # compares prediction and actual
         return sum(int(x == y) for (x, y) in test_results)
 
     def cost_derivative(self, output_activations, y):
@@ -201,17 +197,17 @@ def sigmoid_prime(z):
 
 
 def main():
-    # Import mnist_loader module
-    import mnist_loader
 
-    # Load the data using mnist_loader.load_data_wrapper()
-    training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
+    from utils import mnist_reader
 
-    # Import network module
-    import network
+    # Load the data 
+    training_data, test_data = mnist_reader.load_data_wrapper()
 
+    training_data = list(training_data) # delete
+    test_data = list(test_data)
+    
     # Create a Network instance
-    net = network.Network([784, 30, 10])
+    net = Network([784, 30, 10])
 
     # Call the SGD (Stochastic Gradient Descent) method on the network instance
     net.SGD(training_data, epochs=30, mini_batch_size=10, eta=3.0, test_data=test_data)
