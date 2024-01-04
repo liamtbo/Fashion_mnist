@@ -56,7 +56,7 @@ def run_network(filename, num_epochs, training_set_size=1000, lmbda=0.0):
     net = network2.Network([784, 30, 10], cost=network2.CrossEntropyCost())
     net.large_weight_initializer()
     test_cost, test_accuracy, training_cost, training_accuracy \
-        = net.SGD(training_data[:training_set_size], num_epochs, 10, 0.5,
+        = net.SGD(list(training_data)[:training_set_size], num_epochs, 10, 0.5,
                   evaluation_data=test_data, lmbda = lmbda,
                   monitor_evaluation_cost=True, 
                   monitor_evaluation_accuracy=True, 
@@ -83,9 +83,11 @@ def make_plots(filename, num_epochs,
     plot_test_cost(test_cost, num_epochs, test_cost_xmin)
     plot_training_accuracy(training_accuracy, num_epochs, 
                            training_accuracy_xmin, training_set_size)
+    # plot_overlay(test_accuracy, training_accuracy, num_epochs,
+    #              min(test_accuracy_xmin, training_accuracy_xmin),
+    #              training_set_size)
     plot_overlay(test_accuracy, training_accuracy, num_epochs,
-                 min(test_accuracy_xmin, training_accuracy_xmin),
-                 training_set_size)
+                0, training_set_size)
 
 def plot_training_cost(training_cost, num_epochs, training_cost_xmin):
     fig = plt.figure()
@@ -154,26 +156,32 @@ def plot_overlay(test_accuracy, training_accuracy, num_epochs, xmin,
     ax.grid(True)
     ax.set_xlim([xmin, num_epochs])
     ax.set_xlabel('Epoch')
-    ax.set_ylim([90, 100])
+    ax.set_ylim([0, 100])
     plt.legend(loc="lower right")
     plt.show()
 
 if __name__ == "__main__":
-    filename = raw_input("Enter a file name: ")
-    num_epochs = int(raw_input(
+    filename = input("Enter a file name: ")
+    num_epochs = int(input(
         "Enter the number of epochs to run for: "))
-    training_cost_xmin = int(raw_input(
-        "training_cost_xmin (suggest 200): "))
-    test_accuracy_xmin = int(raw_input(
-        "test_accuracy_xmin (suggest 200): "))
-    test_cost_xmin = int(raw_input(
-        "test_cost_xmin (suggest 0): "))
-    training_accuracy_xmin = int(raw_input(
-        "training_accuracy_xmin (suggest 0): "))
-    training_set_size = int(raw_input(
-        "Training set size (suggest 1000): "))
-    lmbda = float(raw_input(
-        "Enter the regularization parameter, lambda (suggest: 5.0): "))
+    # training_cost_xmin = int(input(
+    #     "training_cost_xmin (suggest 0): "))
+    training_cost_xmin = 0
+    # test_accuracy_xmin = int(input(
+    #     "test_accuracy_xmin (suggest 0): "))
+    test_accuracy_xmin = 0
+    # test_cost_xmin = int(input(
+    #     "test_cost_xmin (suggest 0): "))
+    test_cost_xmin = 0
+    # training_accuracy_xmin = int(input(
+    #     "training_accuracy_xmin (suggest 0): "))
+    training_accuracy_xmin = 0
+    # training_set_size = int(input(
+    #     "Training set size (suggest 1000): "))
+    training_set_size = 1000
+    # lmbda = float(input(
+    #     "Enter the regularization parameter, lambda (suggest: 5.0): "))
+    lmbda = 5.0
     main(filename, num_epochs, training_cost_xmin, 
          test_accuracy_xmin, test_cost_xmin, training_accuracy_xmin,
          training_set_size, lmbda)
