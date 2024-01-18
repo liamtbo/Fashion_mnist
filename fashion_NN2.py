@@ -433,4 +433,4 @@ def main():
             monitor_training_cost=True, monitor_training_accuracy=True)
 
 
-# main()
+main()
