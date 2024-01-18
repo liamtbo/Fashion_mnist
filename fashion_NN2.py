@@ -414,13 +414,23 @@ def sigmoid_prime(z):
     return sigmoid(z)*(1-sigmoid(z))
 
 
+# def main():
+#     import mnist_loader
+#     training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
+#     net = Network([784, 30, 10], cost=CrossEntropyCost)
+#     net.large_weight_initializer()
+#     net.SGD(list(training_data)[:1000], 30, 10, 0.5,  evaluation_data=test_data, 
+#             lmbda=0.1, monitor_evaluation_cost=True, monitor_evaluation_accuracy=True, 
+#             monitor_training_cost=True, monitor_training_accuracy=True)
+
 def main():
-    import mnist_loader
-    training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
-    net = Network([784, 30, 10], cost=CrossEntropyCost)
+    from utils import mnist_reader
+    training_data, test_data = mnist_reader.load_data_wrapper()
+    net = Network([784,30,10], cost=CrossEntropyCost)
     net.large_weight_initializer()
     net.SGD(list(training_data)[:1000], 30, 10, 0.5,  evaluation_data=test_data, 
             lmbda=0.1, monitor_evaluation_cost=True, monitor_evaluation_accuracy=True, 
             monitor_training_cost=True, monitor_training_accuracy=True)
 
-main()
+
+# main()
