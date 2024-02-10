@@ -212,11 +212,11 @@ class Network(object):
             if monitor_evaluation_cost:
                 cost = self.total_cost(evaluation_data, lmbda, convert=True)
                 evaluation_cost.append(cost)
-                print("Cost on evaluation data: {}".format(cost))
+                # print("Cost on evaluation data: {}".format(cost))
             if monitor_evaluation_accuracy:
                 accuracy = self.accuracy(evaluation_data)
                 evaluation_accuracy.append(accuracy)
-                print("Accuracy on evaluation data: {} / {}".format(self.accuracy(evaluation_data), n_data))
+                # print("Accuracy on evaluation data: {} / {}".format(self.accuracy(evaluation_data), n_data))
 
             # Early stopping:
             if early_stopping_n > 0:
@@ -423,14 +423,18 @@ def sigmoid_prime(z):
 #             lmbda=0.1, monitor_evaluation_cost=True, monitor_evaluation_accuracy=True, 
 #             monitor_training_cost=True, monitor_training_accuracy=True)
 
-def main():
-    from utils import mnist_reader
-    training_data, test_data = mnist_reader.load_data_wrapper()
-    net = Network([784,30,10], cost=CrossEntropyCost)
-    net.large_weight_initializer()
-    net.SGD(list(training_data)[:1000], 30, 10, 0.5,  evaluation_data=test_data, 
-            lmbda=0.1, monitor_evaluation_cost=True, monitor_evaluation_accuracy=True, 
-            monitor_training_cost=True, monitor_training_accuracy=True)
+# def main():
+#     from utils import mnist_reader
+#     training_data, test_data = mnist_reader.load_data_wrapper()
+#     net = Network([784,30,10], cost=CrossEntropyCost)
+#     net.large_weight_initializer()
+#     # sgd with  evaluation data (works)
+#     # net.SGD(list(training_data)[:1000], 30, 10, 0.5,  evaluation_data=test_data, 
+#     #         lmbda=0.1, monitor_evaluation_cost=True, monitor_evaluation_accuracy=True, 
+#     #         monitor_training_cost=True, monitor_training_accuracy=True)
+#     net.SGD(list(training_data)[:1000], 30, 10, 0.5, lmbda=0.1, 
+#             monitor_training_cost=True, monitor_training_accuracy=True)
 
 
-main()
+
+# main()
