@@ -14,3 +14,4 @@ For a visuallization  of this, we can see the cost on the training data in Figur
 As we can see here, specifically it looks like after epoch 5, we see the accuracy rate of change severly drop off. This phase of training wastes a lost of computing power and time and is often associated with overfitting.
 ![](img/Accuracy_training_data.png) Figure 1
 
+It does appear that the network continue to trend up, so here one would have to make a choice of valueing computer time/power vs how accurate their network becomes. If computing time is a concern one might feel ok with keeping their nueral network at 80% accuracy and stopping at epoch 5-8. If computing time is not a concern, then keeping the network at 30 epochs to obtain the last 5% would the be best route. 
