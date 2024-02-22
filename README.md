@@ -11,5 +11,6 @@ Initially, this deep nueral network was set to an arbitrary 30 epochs. The resul
 For a visuallization  of this, we can see the cost on the training data in Figure 2. It slopes down dramitcally between epochs 0 throgh 10. After that, the amount of cost reduction versus time and computational power severly decreases. Interestingly, it seems the graph takes on a y=1/x shape.
 ![](img/cost_on_training_data.png) Figure 2
 
-
+As we can see here, specifically it looks like after epoch 5, we see the accuracy rate of change severly drop off. This phase of training wastes a lost of computing power and time and is often associated with overfitting.
+![](img/Accuracy_training_data.png) Figure 1
 
