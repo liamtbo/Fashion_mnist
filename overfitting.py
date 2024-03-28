@@ -55,7 +55,8 @@ def run_network(filename, num_epochs, training_set_size=1000, lmbda=0.0):
     np.random.seed(12345678)
     # training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
     training_data, test_data = utils.mnist_reader.load_data_wrapper()
-    net = fashion_NN2.Network([784, 30, 10], cost=fashion_NN2.CrossEntropyCost())
+    # net = fashion_NN2.Network([784, 30, 10], cost=fashion_NN2.CrossEntropyCost())
+    net = fashion_NN2.Network([784, 30, 10], cost=fashion_NN2.QuadraticCost())
     net.large_weight_initializer()
     test_cost, test_accuracy, training_cost, training_accuracy \
         = net.SGD(list(training_data)[:training_set_size], num_epochs, 10, 0.5,
