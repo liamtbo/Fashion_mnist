@@ -56,7 +56,7 @@ For a visualization of this, we can see the cost on the training data below. It 
 
 ![](img/cross_entropy/cost_on_training_data.png)
 
-As we can see in the next image, specifically it looks like after epoch 5, we see the accuracy rate of change severely drop off. This phase of training wastes a lot of computing power and is the result of the network overfitting. A neural network overfitting to it's training data is not productive for applying the netowrk to any sort of validation data or real-world scenerios and is best to avoid.
+As we can see in the next image, specifically it looks like after epoch 5, we see the accuracy rate of change severely drop off. This phase of training wastes a lot of computing power and is the result of the network overfitting. A neural network overfitting to it's training data is not productive for applying the network to any sort of validation data or real-world scenerios and is best to avoid.
 
 ![](img/cross_entropy/Accuracy_training_data.png)
 
