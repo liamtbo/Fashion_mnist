@@ -55,8 +55,8 @@ def run_network(filename, num_epochs, training_set_size=1000, lmbda=0.0):
     np.random.seed(12345678)
     # training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
     training_data, test_data = utils.mnist_reader.load_data_wrapper()
-    # net = fashion_NN2.Network([784, 30, 10], cost=fashion_NN2.CrossEntropyCost())
-    net = fashion_NN2.Network([784, 30, 10], cost=fashion_NN2.QuadraticCost())
+    net = fashion_NN2.Network([784, 30, 10], cost=fashion_NN2.CrossEntropyCost())
+    # net = fashion_NN2.Network([784, 30, 10], cost=fashion_NN2.QuadraticCost())
     net.large_weight_initializer()
     test_cost, test_accuracy, training_cost, training_accuracy \
         = net.SGD(list(training_data)[:training_set_size], num_epochs, 10, 0.5,
@@ -164,7 +164,7 @@ def plot_overlay(test_accuracy, training_accuracy, num_epochs, xmin,
     plt.show()
 
 if __name__ == "__main__":
-    filename = input("Enter a file name: ")
+    # filename = input("Enter a file name: ")
     num_epochs = int(input(
         "Enter the number of epochs to run for: "))
     # training_cost_xmin = int(input(
@@ -185,6 +185,6 @@ if __name__ == "__main__":
     # lmbda = float(input(
     #     "Enter the regularization parameter, lambda (suggest: 5.0): "))
     lmbda = 5.0
-    main(filename, num_epochs, training_cost_xmin, 
+    main("test", num_epochs, training_cost_xmin, 
          test_accuracy_xmin, test_cost_xmin, training_accuracy_xmin,
          training_set_size, lmbda)
