@@ -25,7 +25,7 @@ Our second choice of a cost function is the cross-entropy function.
 
 ![](img/cross_entropy/ce-eq.png)
 
-In this equation, *n* is the total number of items in the training data (*n* handwritten digits), *x* is each training image, *y* is the actual, and *a* is the predicted. A benefit to the cross-entropy is that it avoids the issue of learning slowdown that quadratic cost has.
+In this equation, *n* is the total number of items in the training data (*n* clothing image), *x* is each training image, *y* is the actual, and *a* is the predicted. A benefit to the cross-entropy is that it avoids the issue of learning slowdown that quadratic cost has.
 
 ![](img/cross_entropy/ce-deriv1.png)
 ![](img/cross_entropy/ce-deriv2.png)
@@ -62,3 +62,5 @@ As we can see in the next image, specifically it looks like after epoch 5, we se
 
 However, it does appear that the network continues to trend up, so here one would have to make a choice of evaluating computer time/power vs how accurate their network becomes. If computing time is a concern, one might feel okay with keeping their neural network at 80% accuracy and stopping at epoch 5-8. If computing time is not a concern, then keeping the network at 30 epochs to obtain the last 5% would be the best route.
 
+# Conclusion
+As seen in the multiple images above, my deep neural network accomplished an 85% accuracy rate after 30 epochs. Although not perfect, this network has shown a strong ability to identifiy different peices of clothing. Such a network could be easily applied to a any clothing website (or more likely, a used clothing app such as Depop and ebay) and could offer a fast and reliable way to collect data.
