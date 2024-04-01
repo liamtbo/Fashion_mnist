@@ -1,6 +1,6 @@
 # Introduction
 
-Over this past summer, I committed myself to the dense reading of "Neural Networks and Deep Learning" by Michael Nielsen. This project displays the many hours I've spent diving deep into the math and low-level logic of neural networks. This work will act as an overview of some of the many subjects Nielsen touched within his book.
+Over this past summer, I committed myself to the dense reading of "Neural Networks and Deep Learning" by Michael Nielsen. This project displays the many hours I've spent diving deep into the math and low-level logic of neural networks. The data set I used for this project was provided by Tesnorflow.com, and is called the fashion mnist data set. It is very similar to the classic mnist data set of handwritten digits that Michal Neilsen originally designed this deep neural network for. This work will act as an overview of some of the many subjects Nielsen touched within his book. 
 
 # Cross-Entropy vs Quadratic Cost
 Within Nielsen's deep neural network, one is able to choose between two different cost functions: quadratic cost and cross-entropy. Within the text, great detail is given on the benefits and costs of each, to which i'll touch on the important parts below. Choosing an appropriate cost function for one's neural network is very important as it has a tremendous impact on the accuracy and efficiency of the training.
